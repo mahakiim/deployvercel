@@ -1,0 +1,13 @@
+name: Trigger Weather Upload Every 5 Minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  call-weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hit Vercel Weather Trigger
+        run: |
+          curl -m 10 https://YOUR_PROJECT.vercel.app/api/trigger || true
