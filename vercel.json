@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "api/*.py", "use": "@vercel/python" }
+    ],
+    "routes": [
+      { "src": "/api/predict", "dest": "api/predict.py" },
+      { "src": "/api/trigger", "dest": "api/trigger_weather.py" }
+    ],
+    "crons": [
+      {
+        "path": "/api/trigger",
+        "schedule": "*/5 * * * *"
+      }
+    ]
+  }
+  
